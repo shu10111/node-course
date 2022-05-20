@@ -65,8 +65,10 @@ doBrushPromise.then((result) =>{
   console.log(result);
 
 }).catch((error) =>{
+  //在此之前發生錯誤,都可在這被捕捉
   console.error('發生錯誤', error)
 })
+
 //doEatPromise.then(()=>{})(x)
 
 
