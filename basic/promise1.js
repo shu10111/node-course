@@ -36,8 +36,8 @@ let doWork = function(job, timer){
       let dt = new Date();
       let result = `完成工作: ${job} at ${dt.toISOString()}`;
       // cb(result);
-      // resovle(result);
-      reject("故意失敗")
+      resovle(result);
+      //reject("故意失敗")
     },timer); 
   });
 };
@@ -48,26 +48,37 @@ let doBrushPromise= doWork('刷牙', 3000);
 //會出現 Promise { <pending> }(初始狀態，不是 fulfilled 與 rejected )
 //.tnen()然後 結果 
 //取代(callback) 
+//doBrushPromise.then(處理成功的函式,處理失敗的函式)
 doBrushPromise.then((result) =>{
   //接到成功的結果
   console.log(result);
   let doEatPromise= doWork('吃早餐', 3000);
-  return doEatPromise
+  return doEatPromise;
 
 // },(error)=>{
 //   console.error('發生錯誤', error);
 // }
-}).then ((result) =>{
+})
+.then ((result) =>{
   console.log(result);
   let doWorkPromise= doWork('寫功課', 3000);
   return doWorkPromise
-}).then ((result) =>{
+// },(error)=>{}
+})
+.then ((result) =>{
   console.log(result);
-
-}).catch((error) =>{
+// },(error)=>{}
+})
+.catch((error) =>{
   //在此之前發生錯誤,都可在這被捕捉
   console.error('發生錯誤', error)
 })
+.finally(() => {
+  console.log('這裡是finally');
+});
+//最後都會跳到finally
+
+//本來要跳去吃早餐 ,但是因為發生錯誤 直接跳到catch
 
 //doEatPromise.then(()=>{})(x)
 

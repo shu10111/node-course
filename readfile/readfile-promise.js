@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 //fs.readFile(path[, options], callback)
 //path(路徑) options([]內的是選填 (encoding 編碼utf8) callback(規定用(error跟data ))
@@ -27,8 +27,6 @@ const fs = require("fs");
 //         console.error(err)
 //     })
 // })
-
-const fs = require("fs");
 
 //fs.readFile(path[, options], callback)
 //path(路徑) options([]內的是選填 (encoding 編碼utf8) callback(規定用(error跟data ))

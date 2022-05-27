@@ -1,6 +1,6 @@
 let dt = new Date();
 console.log(`起床了 at ${dt.toISOString()}`);
-
+//setTimeout非同步(做完之後呼叫callback)
 let doWork = function (job, timer, cb) {
   setTimeout(() => {
     let dt = new Date();
@@ -23,11 +23,15 @@ let doWork = function (job, timer, cb) {
 // doWork('寫功課', 3000, function (result) {
 //   console.log(result);
 // });
+
 doWork("刷牙", 3000, function (result) {
+  //刷完牙了
   console.log(result);
   doWork("吃早餐", 5000, function (result) {
+    //吃早餐了
     console.log(result);
     doWork("寫功課", 3000, function (result) {
+      //寫完功課
       console.log(result);
     });
   });
